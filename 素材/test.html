@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a {
+            position: relative;
+            top: 40px;
+            left: 20px;
+            width: 500px;
+            height: 500px;
+            background-color: antiquewhite;
+        }
+        .b {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background-color: rgb(193, 128, 44);
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div class="b">
+
+        </div>
+    </div>
+    <script>
+        let a = document.querySelector('.a');
+        a.addEventListener('mousedown', (event) => {
+            // let currentTarget = event.currentTarget;
+            // let x = event.clientX - currentTarget.offsetLeft;
+            // let y = event.clientY - currentTarget.offsetTop;
+            // console.log(x, y)
+            console.log(event.offsetX, event.offsetY);
+            event.stopPropagation();
+        }, true)
+        let b = document.querySelector('.b');
+        b.addEventListener('mousedown', (event) => {
+        // let currentTarget = event.currentTarget.getBoundingClientRect();
+        // let x = event.clientX - currentTarget.x;
+        // let y = event.clientY - currentTarget.y;
+        //     console.log(x, y)
+        //     console.log(event.offsetX, event.offsetY);
+        //     event.stopPropagation();
+        }, true)
+    </script>
+</body>
+</html>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -17,11 +18,11 @@ class UserController extends Controller
         if (!$request->has(['email', 'password'])) {
             return ErrorController::MissingField();
         }
+        // body或query資料格式錯誤
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required',
         ]);
-        // body或query資料格式錯誤
         if ($validator->fails()) {
             return ErrorController::WrongDataType();
         }
