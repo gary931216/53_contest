@@ -1,0 +1,213 @@
+body {
+    margin: 0;
+}
+
+p,
+h1 {
+    margin: 0;
+}
+
+header {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px 15%;
+    display: flex;
+    justify-content: space-between;
+}
+header > .menu {
+    display: flex;
+}
+header > .menu > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 20px;
+    text-decoration: none;
+}
+header > .menu > a:hover {
+    transition: 0.3s;
+    background-color: gray;
+    border-radius: 5px;
+    color: white;
+}
+
+main {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#slogon {
+    width: 100%;
+    position: relative;
+}
+#slogon > img {
+    width: 100%;
+    height: 65vh;
+    object-fit: cover;
+    object-position: center;
+}
+#slogon > p {
+    position: absolute;
+    padding: 10px 0;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    font-size: 36px;
+    background-color: rgb(250, 250, 250);
+}
+
+#goal {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 10%;
+}
+#goal > h2 {
+    margin: 40px 0;
+    text-align: center;
+}
+#goal > div {
+    padding: 20px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#goal > div:nth-child(2n - 1) {
+    flex-direction: row-reverse;
+}
+#goal > div > img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+}
+#goal > div > div {
+    width: 700px;
+    display: flex;
+    align-self: center;
+    flex-wrap: wrap;
+}
+#goal > div > div > h4,
+#goal > div > div > p {
+    width: 100%;
+    text-align: center;
+}
+
+#moment {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 10%;
+}
+#moment > h2 {
+    margin: 40px 0;
+    text-align: center;
+}
+#moment > .cards {
+    width: 100%;
+    display: flex;
+}
+#moment > .cards > .card {
+    position: relative;
+    margin: 0 10px;
+    width: calc(25% - 20px);
+    height: 650px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+#moment > .cards > .card > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+/* hover 效果 */
+#moment > .cards > .card > .word {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    overflow: hidden;
+    background-color: aliceblue;
+    opacity: 0;
+    transition: 0.5s;
+}
+#moment > .cards > .card > .word > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+#moment > .cards > .card:hover {
+    overflow: hidden;
+}
+
+/* word1 */
+#moment > .cards > .card > .word1 {
+    top: 0;
+    left: 0;
+    transform-origin: 0 0;
+    transform: translate(-100%, -100%);
+}
+#moment > .cards > .card > .word1 > div {
+    left: 50%;
+    top: 50%;
+    /* transform: translate(-50%, -50%); */
+}
+#moment > .cards > .card:hover > .word1 {
+    transition: transform 1s;
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* word2 */
+#moment > .cards > .card > .word2 {
+    top: 0;
+    right: 0;
+    transform: translate(100%, -100%);
+}
+#moment > .cards > .card > .word2 > div {
+    right:  50%;
+    top: 50%;
+}
+#moment > .cards > .card:hover > .word2 {
+    transition: 1s;
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* word3 */
+#moment > .cards > .card > .word3 {
+    bottom: 0;
+    right: 0;
+    transform: translate(100%, 100%);
+}
+#moment > .cards > .card > .word3 > div {
+    right:  50%;
+    bottom: 50%;
+}
+#moment > .cards > .card:hover > .word3 {
+    transition: 1s;
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* word4 */
+#moment > .cards > .card > .word4 {
+    left: 0;
+    bottom: 0;
+    transform: translate(-100%, 100%);
+}
+#moment > .cards > .card > .word4 > div {
+    left:  50%;
+    bottom: 50%;
+}
+#moment > .cards > .card:hover > .word4 {
+    transition: 1s;
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.infor {
+    height: 400px;
+}

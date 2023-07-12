@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 320px;
+            height: 320px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .pixel {
+            width: 20px;
+            height: 20px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        .colors {
+            display: flex;
+        }
+        .color {
+            margin: 0 5px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 5px solid gray;
+        }
+        .current {
+            border: 5px solid yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <div class="colors">
+        <div class="color" data-color="#33db41"></div>
+        <div class="color" data-color="#57db33"></div>
+        <div class="color" data-color="#db8133"></div>
+        <div class="color" data-color="#3933db"></div>
+        <div class="color" data-color="#db3347"></div>
+        <div class="color" data-color="#db33cd"></div>
+        <div class="color" data-color="#ddff79"></div>
+    </div>
+    <script>
+        let container = document.querySelector('.container')
+        let currentColor;
+        let colors = document.querySelectorAll('.color');
+        colors.forEach(color => {
+            color.style = `background-color: ${color.dataset.color}`
+            color.addEventListener('click', () => {
+                resetColor()
+                color.classList.add('current');
+                currentColor = color.dataset.color;
+                console.log(currentColor)
+            })
+        })
+        for(let i = 0; i < 16; i++) {
+            for(let z = 0; z < 16; z++) {
+                let div = document.createElement('div')
+                div.classList.add('pixel')
+                container.append(div)
+            }
+        }
+        let pixels = document.querySelectorAll('.pixel')
+        pixels.forEach(pixel => {
+            pixel.addEventListener("click", () => {
+                pixel.style = `background-color: ${currentColor}`
+            })
+        });
+
+        function resetColor() {
+            colors.forEach(color => {
+                color.classList.remove('current');
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+        }
+        #magnifier {
+            /* display: none; */
+            position: absolute;
+            border: 1px solid black;
+            border-radius: 100%;
+        }
+        .colorbox {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="image">
+    <div class="container">
+        <img src="" alt="">
+        <canvas id="magnifier" width="100" height="100"></canvas>
+    </div>
+    <div class="colorbox"></div>
+    <p class="rgb"></p>
+    <script>
+        let input = document.querySelector('#image');
+        let image = document.querySelector("img");
+        let canvas = document.querySelector('canvas');
+        let ctx = canvas.getContext('2d');
+        let colorbox = document.querySelector('.colorbox')
+        let rgb = document.querySelector('.rgb')
+
+        input.addEventListener('change', () => {
+            let file = input.files[0];
+            
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.addEventListener('load', () => {
+                image.src = reader.result;
+            })
+        })
+
+        image.addEventListener('mousemove', (ev) => {
+            drawCanvas(ev.offsetX, ev.offsetY)
+            canvas.style = `top: ${ev.offsetY}px; left: ${ev.offsetX}px`;
+        })
+
+        function drawCanvas(x, y) {
+            ctx.clearRect(0, 0, magnifier.clientWidth, magnifier.clientHeight);
+            ctx.drawImage(image, x - 7, y - 7, 14, 14, 0, 0, 100, 100);
+            
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';// 網格線顏色
+            
+            for (let x = 0; x < canvas.width; x += 9) {
+                ctx.fillRect(x, 0, 1, canvas.height);
+            }
+
+            // // 繪製水平網格線
+            for (let y = 0; y < canvas.height; y += 9) {
+                ctx.fillRect(0, y, canvas.width, 1);
+            }
+
+            // 繪製紅色空心四方形
+            ctx.strokeStyle = 'rgba(255, 0, 0)'; // 紅色邊線顏色
+            ctx.lineWidth = 2; // 邊線寬度
+            ctx.strokeRect(46, 46, 9, 9); // 繪製紅色空心四方形
+            const imageData = ctx.getImageData(47, 47, 9, 9);
+            const pixel = imageData.data;
+            colorbox.style = `background-color: rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`
+            rgb.innerHTML = `rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`
+        }
+    </script>
+</body>
+</html>

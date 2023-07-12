@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        
+    </div>
+    <input type="text">
+    <button>Search</button>
+    <script>
+        let sentence = "This is a WorldSkills Competition Paper D. In this paper, you are expected to design a poster to welcome vistors to your country."
+        let div = document.querySelector('div');
+        let input = document.querySelector('input');
+        let button = document.querySelector('button');
+        div.innerHTML = sentence;
+        button.addEventListener('click', () => {
+            let keyword = input.value;
+            let r = Math.floor(Math.random()*200)+50;
+            let g = Math.floor(Math.random()*200)+50;
+            let b = Math.floor(Math.random()*200)+50;
+            let regex = new RegExp(keyword, "g")
+            console.log(regex)
+            let newSentence = sentence.replaceAll(regex, `<span style="background-color: rgb(${r}, ${g}, ${b})">${keyword}</span>`)
+            console.log(newSentence)
+            div.innerHTML = newSentence
+        })
+    </script>
+</body>
+</html>
