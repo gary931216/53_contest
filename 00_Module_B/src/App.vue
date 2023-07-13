@@ -188,6 +188,7 @@ export default {
     },
     mouseDown(event) {
       let currentTarget = event.currentTarget.getBoundingClientRect();
+      
       let x = event.clientX - currentTarget.x;
       let y = event.clientY - currentTarget.y;
       if(this.nowFunc == "pen") {
@@ -293,8 +294,8 @@ export default {
       let canvas = object[object.length - 1].canvas;
       let ctx = canvas.getContext('2d'); 
       ctx.fillStyle = 'rgba(255, 255, 255, 0)'
-      ctx.lineJoin = 'round';
-      ctx.lineCap = 'round';
+      // ctx.lineJoin = 'round';
+      // ctx.lineCap = 'round';
       ctx.lineWidth = this.degree;  
       ctx.strokeStyle = this.color;
       ctx.beginPath();

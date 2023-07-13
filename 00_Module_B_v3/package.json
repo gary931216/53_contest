@@ -1,0 +1,19 @@
+{
+  "name": "00-module-b-v3",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "url": "^0.11.1",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "vite": "^4.3.9"
+  }
+}
