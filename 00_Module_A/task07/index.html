@@ -21,7 +21,7 @@
         let hex = document.querySelector('#hex')
         let rgb = document.querySelector('#rgb')
 
-        input.addEventListener('change', () => { 
+        input.addEventListener('change', () => {
             let hexReg = /^#[0-9A-Z]{6}$/i
             let rgbReg = /rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/
             if(hexReg.test(input.value)) {

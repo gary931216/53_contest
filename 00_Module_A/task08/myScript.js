@@ -4,15 +4,14 @@ let main = document.querySelector("#main")
 links.forEach((link, index) => {
     link.addEventListener('click', (ev) => {
         ev.preventDefault();
-        if(index == 0) {
-            main.innerHTML = "<p>我是A</p>"
-        }
-        if(index == 1) {
-            main.innerHTML = "<p>我是B</p>"
-        }
-        if(index == 2) {
-            main.innerHTML = "<p>我是C</p>"
-        }
-        history.replaceState({}, link.href, link.href)
+        fetch(link.href)
+        .then(res => res.text())
+        .then(response => {
+            let dom = new DOMParser();
+            let doc = dom.parseFromString(response, 'text/html');
+            let newMain = doc.querySelector('#main').innerHTML;
+            main.innerHTML = newMain
+        })
+        history.replaceState(null, null, link.href)
     })
 })
