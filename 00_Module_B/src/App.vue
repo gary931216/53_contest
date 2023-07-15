@@ -237,6 +237,7 @@ export default {
     },
     mouseUp(event) {
       let currentTarget = event.currentTarget.getBoundingClientRect();
+      
       let x = event.clientX - currentTarget.x;
       let y = event.clientY - currentTarget.y;
       if(this.nowFunc == "pen" && this.pen.ondraw == 1) {
@@ -303,6 +304,13 @@ export default {
       ctx.moveTo(this.pen.nowX, this.pen.nowY);
       // go to
       ctx.lineTo(x, y);
+      ctx.stroke();
+      ctx.fillstu
+      ctx.lineWidth
+      ctx.strokeStyle;
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x, y)
       ctx.stroke();
       this.pen.nowX = x;
       this.pen.nowY = y;

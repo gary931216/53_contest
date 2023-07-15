@@ -37,3 +37,5 @@ Route::delete('/images/{id}', [ImageController::class, 'softdelete']);
 Route::get('/images/{id}/comments', [CommentController::class, 'get']);
 Route::post('/images/{id}/comments', [CommentController::class, 'post']);
 Route::delete('/comments/{id}', [CommentController::class, 'delete']);
+
+Route::get('/time', [CommentController::class, 'getTime']); 

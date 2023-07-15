@@ -99,4 +99,10 @@ class CommentController extends Controller
             "success" => TRUE
         ]);
     }
+    public function getTime() {
+        $now = Carbon::now()->format("Y-m-d\TH:m:s");
+        return response()->json([
+            'timer' => $now
+        ]);
+    }
 }
